@@ -1,0 +1,14 @@
+Para compilação, será necessário o cmake (apt-get install cmake)
+
+Para compilar, faça o seguinte pelo terminal:
+
+1. Vá até o diretório onde o programa se encontra.
+
+2. Digite o comando:
+	$ cmake .
+	
+3. Digite o comando:
+	$ make
+	
+	O executável será gerado na mesma pasta, com o nome "teste"
+	
