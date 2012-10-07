@@ -5,9 +5,9 @@
 
 // Há algum problema com os ponteiros.
 
-#define maxV 4
+#define maxV 10
 
-static int visited[maxV];
+int visited[maxV];
 
 
 /// Forma simplificada de representação da estrutura Edge.
@@ -134,6 +134,10 @@ void GRAPHshow( Graph *G )
 int pathR( Graph *G, int v, int w, int d )
 {
     int t;
+    printf("O que já foi visitado?\n");
+    for( t = 0; t < G->V; t++ )
+        printf("%d=%d, ", t, visited[t]);
+    printf("\n");
     if( v == w )
     {
         if( d == 0 )
@@ -145,8 +149,10 @@ int pathR( Graph *G, int v, int w, int d )
     for( t = 0; t < G->V; t++ )
         if( G->adj[v][t] == 1 )
             if( visited[t] == 0 )
-                if( pathR( G, t, w, d-1 ) )
+                if( pathR( G, t, w, d-1 ) ){
+                    printf("%d-> ", t );
                     return 1;
+                }
     visited[v] = 0;
     return 0;
 }
